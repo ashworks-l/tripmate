@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# TripMate
+
+TripMate is a personal travel planner web application that allows users to organize and manage their trips, destinations, travel dates, and planned activities in one place.
+
+## Purpose
+
+The purpose of TripMate is to make travel planning easier by providing one organized platform for managing personal travel plans.
+
+## Target Audience
+
+Individuals, families, and friends who want a simple way to organize their trips and activities.
+
+## Main Features
+
+- User registration and login.
+- Create, view, edit, and delete trips.
+- Manage activities associated with each trip.
+- View trip destinations and travel dates.
+- Responsive design for desktop, tablet, and mobile devices.
+
+## Technology Stack
+
+- Next.js with App Router
+- TypeScript
+- Tailwind CSS
+- Prisma
+- ESLint
+- Prettier
 
 ## Getting Started
 
-First, run the development server:
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000 in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Code Quality
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Run ESLint:
 
-## Learn More
+```bash
+npm run lint
+```
 
-To learn more about Next.js, take a look at the following resources:
+Check formatting:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npx prettier . --check
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Project Developer
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Ashley Lujan

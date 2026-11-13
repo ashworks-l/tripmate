@@ -1,0 +1,276 @@
+openapi: 3.0.3
+info:
+  title: TripMate MVP API
+  version: 1.0.0
+  description: Personal trip and activity management endpoints for authenticated users.
+servers:
+  - url: /api
+    description: API base path relative to the current host.
+security:
+  - SessionCookieAuth: []
+paths:
+  /auth/register:
+    post:
+      summary: Register a new user
+      operationId: registerUser
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [email, password]
+              properties:
+                email:
+                  type: string
+                  format: email
+                password:
+                  type: string
+                  minLength: 8
+      responses:
+        '201':
+          description: User created successfully
+        '400':
+          description: Invalid request or duplicate email
+
+  /auth/login:
+    post:
+      summary: Authenticate a user
+      operationId: loginUser
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [email, password]
+              properties:
+                email:
+                  type: string
+                  format: email
+                password:
+                  type: string
+      responses:
+        '200':
+          description: Login successful
+        '401':
+          description: Invalid credentials
+
+  /auth/logout:
+    post:
+      summary: End the current session
+      operationId: logoutUser
+      security:
+        - SessionCookieAuth: []
+      responses:
+        '200':
+          description: Logged out
+        '401':
+          description: Authentication required
+
+  /trips:
+    get:
+      summary: List trips for the authenticated user
+      operationId: listTrips
+      responses:
+        '200':
+          description: Array of trips
+        '401':
+          description: Authentication required
+    post:
+      summary: Create a trip
+      operationId: createTrip
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TripInput'
+      responses:
+        '201':
+          description: Trip created
+        '400':
+          description: Validation error
+        '401':
+          description: Authentication required
+
+  /trips/{tripId}:
+    get:
+      summary: Get a single trip owned by the current user
+      operationId: getTripById
+      parameters:
+        - $ref: '#/components/parameters/TripId'
+      responses:
+        '200':
+          description: Trip record
+        '401':
+          description: Authentication required
+        '404':
+          description: Trip not found or not owned by the authenticated user
+    put:
+      summary: Update a trip only if it belongs to the current user
+      operationId: updateTrip
+      parameters:
+        - $ref: '#/components/parameters/TripId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TripInput'
+      responses:
+        '200':
+          description: Trip updated
+        '400':
+          description: Validation error
+        '401':
+          description: Authentication required
+        '404':
+          description: Trip not found or not owned by the authenticated user
+    delete:
+      summary: Delete a trip and all related activities
+      operationId: deleteTrip
+      parameters:
+        - $ref: '#/components/parameters/TripId'
+      responses:
+        '200':
+          description: Trip deleted
+        '401':
+          description: Authentication required
+        '404':
+          description: Trip not found or not owned by the authenticated user
+
+  /trips/{tripId}/activities:
+    get:
+      summary: List activities for a specific trip
+      operationId: listTripActivities
+      parameters:
+        - $ref: '#/components/parameters/TripId'
+      responses:
+        '200':
+          description: Activity list
+        '401':
+          description: Authentication required
+        '404':
+          description: Trip not found or not owned by the authenticated user
+    post:
+      summary: Create a new activity for an owned trip
+      operationId: createTripActivity
+      parameters:
+        - $ref: '#/components/parameters/TripId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ActivityInput'
+      responses:
+        '201':
+          description: Activity created
+        '400':
+          description: Validation error
+        '401':
+          description: Authentication required
+        '404':
+          description: Trip not found or not owned by the authenticated user
+
+  /activities/{activityId}:
+    put:
+      summary: Update an activity if it belongs to the current user
+      operationId: updateActivity
+      parameters:
+        - $ref: '#/components/parameters/ActivityId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ActivityInput'
+      responses:
+        '200':
+          description: Activity updated
+        '400':
+          description: Validation error
+        '401':
+          description: Authentication required
+        '404':
+          description: Activity not found or not associated with a trip owned by the authenticated user
+    delete:
+      summary: Delete an activity if it belongs to the current user
+      operationId: deleteActivity
+      parameters:
+        - $ref: '#/components/parameters/ActivityId'
+      responses:
+        '200':
+          description: Activity deleted
+        '401':
+          description: Authentication required
+        '404':
+          description: Activity not found or not associated with a trip owned by the authenticated user
+
+components:
+  securitySchemes:
+    SessionCookieAuth:
+      type: apiKey
+      in: cookie
+      name: tripmate_session
+      description: >
+        HTTP-only, secure session cookie used for authenticated sessions. The cookie
+        must be configured with HttpOnly, Secure in production, and an appropriate
+        SameSite policy.
+
+  parameters:
+    TripId:
+      name: tripId
+      in: path
+      required: true
+      schema:
+        type: string
+    ActivityId:
+      name: activityId
+      in: path
+      required: true
+      schema:
+        type: string
+
+  schemas:
+    TripInput:
+      type: object
+      required: [title, destination, startDate, endDate]
+      properties:
+        title:
+          type: string
+        destination:
+          type: string
+        startDate:
+          type: string
+          format: date
+        endDate:
+          type: string
+          format: date
+          description: Must be on or after startDate.
+        notes:
+          type: string
+          nullable: true
+
+    ActivityInput:
+      type: object
+      required: [title, activityDate]
+      properties:
+        title:
+          type: string
+        description:
+          type: string
+          nullable: true
+        activityDate:
+          type: string
+          format: date
+          description: Must fall within the associated trip's startDate and endDate.
+        time:
+          type: string
+          nullable: true
+        location:
+          type: string
+          nullable: true
