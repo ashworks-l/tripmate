@@ -35,5 +35,3 @@
 - The approved TripMate MVP scope remains limited to personal trip planning, secure ownership-based access, and trip/activity management.
 - The specification correctly documents the required technology stack and API endpoint contract for the assigned project.
 - The priority model is consistent with the user stories and the requirement set: delete trip functionality is treated as a P0 requirement because full trip CRUD is part of the MVP.
-
-

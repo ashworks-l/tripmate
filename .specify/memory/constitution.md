@@ -97,8 +97,3 @@ This constitution defines the non-negotiable baseline for TripMate development. 
 Versioning follows semantic versioning: MAJOR for incompatible governance changes, MINOR for new principles or material expansions, and PATCH for clarifications or non-semantic wording updates. Compliance review requires confirming that the change remains aligned with the project purpose, user privacy requirements, product reliability, and maintainability standards defined here.
 
 **Version**: 1.0.1 | **Ratified**: 2026-11-13 | **Last Amended**: 2026-11-13
-
-
-
-
-

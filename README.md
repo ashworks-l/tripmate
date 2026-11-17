@@ -21,9 +21,11 @@ Individuals, families, and friends who want a simple way to organize their trips
 ## Technology Stack
 
 - Next.js with App Router
+- React
 - TypeScript
 - Tailwind CSS
-- Prisma
+- Prisma ORM
+- SQLite
 - ESLint
 - Prettier
 

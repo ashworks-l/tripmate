@@ -15,29 +15,34 @@ The application is designed for people who enjoy traveling and want a simple way
 ## 4. Core Features
 
 ### 4.1 User Registration and Login
+
 - Users can create an account.
 - Users can log in and access their personal travel information.
 - Users can manage their own trips.
 
 ### 4.2 Trip Management
+
 - Create a new trip.
 - View a list of trips.
 - Edit existing trips.
 - Delete trips.
 
 ### 4.3 Activity Management
+
 - Add activities to a trip.
 - View planned activities.
 - Edit activity details.
 - Remove activities.
 
 ### 4.4 Trip Details
+
 - Display trip destinations.
 - Display travel dates.
 - Show planned activities.
 - Organize information for each trip.
 
 ### 4.5 Responsive Design
+
 - Provide a user-friendly interface.
 - Support desktop, tablet, and mobile devices.
 
@@ -48,6 +53,7 @@ The application is designed for people who enjoy traveling and want a simple way
 As a user, I want to register and log in so that I can manage my personal travel plans.
 
 Acceptance Criteria:
+
 - Users can register an account.
 - Users can log in.
 - Users can access their personal information.
@@ -57,6 +63,7 @@ Acceptance Criteria:
 As a user, I want to create a trip so that I can organize my travel plans.
 
 Acceptance Criteria:
+
 - Users can enter a trip name.
 - Users can add a destination.
 - Users can select travel dates.
@@ -67,6 +74,7 @@ Acceptance Criteria:
 As a user, I want to see all my trips so that I can easily find my travel plans.
 
 Acceptance Criteria:
+
 - Users can view their saved trips.
 - Each trip displays its main information.
 - Users can open a trip to see more details.
@@ -76,6 +84,7 @@ Acceptance Criteria:
 As a user, I want to update or delete my trips so that I can keep my information accurate.
 
 Acceptance Criteria:
+
 - Users can edit trip information.
 - Users can delete trips.
 - Changes are saved correctly.
@@ -85,6 +94,7 @@ Acceptance Criteria:
 As a user, I want to add, edit, and remove activities so that I can organize what I plan to do during my trip.
 
 Acceptance Criteria:
+
 - Users can add activities.
 - Users can edit activity details.
 - Users can remove activities.

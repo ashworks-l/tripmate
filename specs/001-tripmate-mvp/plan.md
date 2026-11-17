@@ -20,9 +20,10 @@ TripMate MVP delivers a secure personal travel planner built with the Next.js Ap
 **Performance Goals**: Trip lists and detail pages should load efficiently for typical personal travel datasets. Create, update, and delete actions should respond within a normal browser interaction window.
 **Constraints**: Enforce server-side ownership checks, protect secrets from client-side exposure, maintain accessible forms and controls, and remain within the approved personal-trip-only MVP scope.
 **Scale/Scope**: Personal trip management for individual users, with a small dataset of users, trips, and activities. Multi-user collaboration features are outside the MVP scope.
+
 ## Constitution Check
 
-*GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
+_GATE: Must pass before Phase 0 research. Re-check after Phase 1 design._
 
 Pass.
 

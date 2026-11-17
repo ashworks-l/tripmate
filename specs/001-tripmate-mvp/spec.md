@@ -8,13 +8,17 @@
 ## Project Overview
 
 ### Project Title and Description
+
 TripMate is a personal travel planning web application that helps individuals, families, and friends organize trips, destinations, travel dates, and activities in one centralized platform. The product gives users a straightforward place to plan and manage their travel details without fragmenting information across separate notes, spreadsheets, or calendars.
 
 ### Purpose
+
 The purpose of TripMate is to make trip planning easier, faster, and more reliable by giving users a single place to manage their upcoming travel plans and day-by-day activities.
 
 ### Target Audience
+
 TripMate is intended for:
+
 - Individuals planning personal trips
 - Families coordinating shared travel plans
 - Friends traveling together who need a common trip overview
@@ -24,11 +28,13 @@ The initial release does not include group collaboration features beyond persona
 ### User Roles and Authentication Requirements
 
 a) Guest / Unauthenticated User
+
 - Can access public-facing landing or entry screens as applicable
 - Can register for an account
 - Cannot view, edit, or manage another user’s private trip data
 
 b) Authenticated User
+
 - Can register with a unique email address and password
 - Can log in securely and maintain an authenticated session
 - Can create, view, update, and delete only their own trips
@@ -37,7 +43,7 @@ b) Authenticated User
 
 The MVP does not require separate admin, moderator, or role-based access levels beyond the core authenticated user profile.
 
-## User Scenarios & Testing *(mandatory)*
+## User Scenarios & Testing _(mandatory)_
 
 ### User Story 1 - Register and log in to TripMate (Priority: P0)
 
@@ -145,7 +151,7 @@ As an authenticated user, I want to create, view, update, and delete activities 
 - What happens when a user submits duplicate or empty activity titles? The system must either require a unique meaningful title or show validation guidance rather than accepting a blank or invalid record.
 - What happens when a session expires during a protected action? The user must be redirected to a secure login flow and lose access until re-authenticated.
 
-## Requirements *(mandatory)*
+## Requirements _(mandatory)_
 
 ### Functional Requirements
 
@@ -181,7 +187,7 @@ As an authenticated user, I want to create, view, update, and delete activities 
 - **Unauthenticated visitor**: can create an account or log in only; cannot access protected personal data.
 - **Admin / team collaboration roles**: out of scope for the MVP and intentionally excluded from this specification.
 
-### Key Entities *(include if feature involves data)*
+### Key Entities _(include if feature involves data)_
 
 - **User**: Represents an individual account owner. Key attributes include a unique identifier, email address, password hash or secure authentication credential, and account metadata such as registration date.
 - **Trip**: Represents a travel plan owned by one user. Key attributes include a trip identifier, title, destination, start date, end date, and optional notes or metadata. Each trip belongs to exactly one user.
@@ -243,6 +249,7 @@ The following endpoints define the MVP contract for authentication, trip managem
 ## Technical Requirements
 
 The MVP MUST be implemented with the following standards:
+
 - Next.js App Router
 - TypeScript in strict mode
 - Tailwind CSS
@@ -254,6 +261,7 @@ The MVP MUST be implemented with the following standards:
 ## Implementation Priorities
 
 ### P0 — Must have for MVP
+
 - Secure authentication with registration and login
 - Trip creation and trip list view
 - Viewing trip details
@@ -263,19 +271,21 @@ The MVP MUST be implemented with the following standards:
 - Ownership validation and authorization enforcement
 
 ### P1 — Important for MVP quality
+
 - Clear empty and error states
 - Input validation and user feedback
 - Mobile-friendly layouts and accessible forms
 - Consistent route protection and session handling
 
 ### P2 — Later polish, not part of this MVP
+
 - Visual refinements and animation polish
 - Extra utility pages beyond core travel planning
 - Collaborative or shared trip features
 - Advanced analytics and recommendations
 - Export or import workflows outside the approved TripMate scope
 
-## Success Criteria *(mandatory)*
+## Success Criteria _(mandatory)_
 
 ### Measurable Outcomes
 
@@ -291,4 +301,3 @@ The MVP MUST be implemented with the following standards:
 ## Final Scope Statement
 
 This specification defines the approved MVP for TripMate. It deliberately excludes multi-user sharing, collaboration, financial planning, booking integrations, and broader travel marketplace features. The product remains focused on secure, personal trip planning for individuals, families, and friends in a centralized platform, consistent with the project constitution.
-

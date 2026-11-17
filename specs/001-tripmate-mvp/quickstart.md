@@ -1,6 +1,7 @@
 # TripMate MVP Quickstart
 
 ## Local setup
+
 1. Install project dependencies:
    ```bash
    npm install
@@ -25,6 +26,7 @@
 6. Open the app at `http://localhost:3000`.
 
 ## Primary flows
+
 - Register a new account.
 - Log in with the new account.
 - Create a trip with a title, destination, and date range.
@@ -33,6 +35,7 @@
 - Verify that unauthorized users cannot access another user’s trip data.
 
 ## Validation checks
+
 - Run linting:
   ```bash
   npm run lint
@@ -42,4 +45,3 @@
   npm run build
   ```
 - Validate auth and access checks with manual browser testing or integration tests for the protected routes.
-
